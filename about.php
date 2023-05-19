@@ -176,75 +176,107 @@ Template Name: About
 	</section>
 
     <section class="figma bg--green" id="figma">
-        <div class="gradientBottomFromTop"></div>
-        <div class="gradientBottomDark"></div>
+        <div class="gradientBottomFromTop"></div>  
         <div class="container">
             <div class="figmaInfo">
-                <h4>Making Dsigns and Prototypes using</h4>
-                <h1>FIGMA</h1>
-                <p>Figma is a highly versatile and collaborative design tool that can improve your design workflow and help you create more effective and engaging designs.</p>
+                <h4><?php echo get_field('figma_text'); ?></h4>
+                <h1><?php echo get_field('figma_title'); ?></h1>
+                <p><?php echo get_field('figma_desc'); ?></p>
             </div>
             <div class="figma__wrapper d--flex">
+                <?php if(have_rows('figma_repeater')) : while(the_repeater_field('figma_repeater')): ?>
                 <div class="figmaLeft">
-                  <a href="https://www.figma.com/proto/vXcLfoHFq5hS7htntubYPo/Arvin-Web-Design?node-id=35%3A188"><img class="f3" src="<?php echo get_template_directory_uri(); ?>./img/f3.png" alt=""></a>
+                  <a href="https://www.figma.com/proto/vXcLfoHFq5hS7htntubYPo/Arvin-Web-Design?node-id=35%3A188">
+                    <?php 
+                        $img = get_sub_field('figma_img_one');
+                        if(!empty($img)) :
+                    ?>
+                    <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
+                    <?php endif; ?>
+                </a>
                 </div>
                 <div class="figmaRight">
                     <div class="f2">
-                        <a href="https://www.figma.com/proto/3R1xJZTDlXA5cPY28jrw7j/Arvin-New-Design?node-id=0%3A1"><img  src="<?php echo get_template_directory_uri(); ?>./img/f2.png" alt=""></a>
+                        <a href="https://www.figma.com/proto/3R1xJZTDlXA5cPY28jrw7j/Arvin-New-Design?node-id=0%3A1">
+                        <?php 
+                            $img = get_sub_field('figma_img_two');
+                            if(!empty($img)) :
+                        ?>
+                        <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
+                        <?php endif; ?>
+                        </a>
                     </div>
                    <div class="f1">
-                    <a href="https://www.figma.com/proto/N1BH44vAlrELyz3zuTayJs/Re-design-Castillo?node-id=0%3A1"><img  src="<?php echo get_template_directory_uri(); ?>./img/f1.png" alt=""></a>
+                    <a href="https://www.figma.com/proto/N1BH44vAlrELyz3zuTayJs/Re-design-Castillo?node-id=0%3A1">
+                    <?php 
+                        $img = get_sub_field('figma_img_three');
+                        if(!empty($img)) :
+                    ?>
+                    <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
+                    <?php endif; ?>
+                    </a>
                    </div>
                 </div>
+                <?php
+                        endwhile;
+                            else:
+                                echo "no available post yet";
+                            endif;
+                            wp_reset_postdata();
+                        ?>
             </div>
-            <!-- <div class="figmaImages d--flex">
-                <img src="./img/f1.png" alt="">
-                <img src="./img/f2.png" alt="">
-                <img src="./img/f3.png" alt="">
-            </div> -->
+
 
         </div>
     </section>
     <section class="accomplishments bg--gray" id="accomplishments">
         <div class="container">
             <div class="accomplishments__wrapper ">
+                <?php if(have_rows('accomp_repeater')) : while(the_repeater_field('accomp_repeater')): ?>
                 <div class="projectsCompleted">
                     <div class="logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>./img/check-circle.png" alt="">
+                    <?php 
+                        $img = get_sub_field('accom_img');
+                        if(!empty($img)) :
+                    ?>
+                    <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
+                    <?php endif; ?>
                     </div>
-                    <div class="hoverDisplay"><h2>9 Projects</h2></div>
-                    <div class="accomplishmentsName"><h2>Projects Completed</h2></div>
+                    <div class="hoverDisplay"><h2><?php echo get_sub_field('accomp_desc'); ?></h2></div>
+                    <div class="accomplishmentsName"><h2><?php echo get_sub_field('accomp_title'); ?></h2></div>
                 </div>
-                <div class="projectsCompleted">
-                    <div class="logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>./img/comment-alt.png" alt="">
-                    </div>
-                    <div class="hoverDisplay"><h2>7+</h2></div>
-                    <div class="accomplishmentsName"><h2>Positive Feedback</h2></div>
-                </div>
-                <div class="projectsCompleted">
-                    <div class="logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>./img/code.png" alt="">
-                    </div>
-                    <div class="hoverDisplay"><h2>5+</h2></div>
-                    <div class="accomplishmentsName"><h2>Running Project</h2></div>
-                </div>
-                <div class="projectsCompleted">
-                    <div class="logo">
-                        <img src="<?php echo get_template_directory_uri(); ?>./img/coffee.png" alt="">
-                    </div>
-                    <div class="hoverDisplay"><h2>25+</h2></div>
-                    <div class="accomplishmentsName"><h2>Cup of Coffee</h2></div>
-                </div>
+                <?php
+                        endwhile;
+                            else:
+                                echo "no available post yet";
+                            endif;
+                            wp_reset_postdata();
+                        ?>
             </div>
         </div>
     </section>
     <section class="contact py--6">
         <div class="container">
             <div class="contact__wrapper ">
-                <div class="left"><h2>Start a project!</h2></div>
-                <div class="mid"><p>Are you interested in collaborating? We should make a time to talk. I'll get you some coffee.</p></div>
-                <div class="right d--flex align--center "><img src="<?php echo get_template_directory_uri(); ?>./img/handshake.png" alt=""><a href="contact.html"> Let's do this</a></div>
+            <?php if(have_rows('contact_repeater')) : while(the_repeater_field('contact_repeater')): ?>
+                <div class="left"><h2><?php echo get_sub_field('contact_title'); ?></h2></div>
+                <div class="mid"><p><?php echo get_sub_field('contact_excerpt'); ?></p></div>
+                <div class="right d--flex align--center ">
+                    <?php 
+                        $img = get_sub_field('button_img');
+                        if(!empty($img)) :
+                    ?>
+                    <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
+                    <?php endif; ?>
+                    <a href="<?php echo site_url('/contact') ?>"><?php echo get_sub_field('button_name'); ?></a>
+                </div>
+                <?php
+                        endwhile;
+                            else:
+                                echo "no available post yet";
+                            endif;
+                            wp_reset_postdata();
+                        ?> 
             </div>
         </div>
     </section>

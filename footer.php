@@ -6,24 +6,38 @@
                 <div class="leftFooter">
                     <h1>Arvin.C</h1>
                     <ul class="d--flex">
-                        <li><a href="https://www.facebook.com/arvincastillo21"><i class="fa-brands fa-facebook"></i></a></li>
-                        <li><a href="https://www.instagram.com/rvn_cstll/"><i class="fa-brands fa-instagram"></i></a></li>
-                        <li><a href="https://twitter.com/aervinn21"><i class="fa-brands fa-twitter"></i></a></li>
-                        <li><a href="mailto:arvincastillo@gmail.com"><i class="fa-solid fa-envelope"></i></a></li>
+                    <?php if(have_rows('socials_repeater')) : while(the_repeater_field('socials_repeater')): ?>
+                        <li><a href="https://www.facebook.com/arvincastillo21"><?php echo get_sub_field('icon_1'); ?></a></li>
+                        <li><a href="https://www.instagram.com/rvn_cstll/"><?php echo get_sub_field('icon_2'); ?></a></li>
+                        <li><a href="https://twitter.com/aervinn21"><?php echo get_sub_field('icon_3'); ?></a></li>
+                        <li><a href="mailto:arvincastillo@gmail.com"><?php echo get_sub_field('icon_4'); ?></a></li>
+                        <?php
+                        endwhile;
+                            else:
+                                echo "no available post yet";
+                            endif;
+                            wp_reset_postdata();
+                        ?> 
                     </ul>
                 </div>
                 <div class="rightFooter">
                     <table>
                         <tr>
-                            <td><a href="#">Home</a></td>
-                            <td><a href="contact.html">Contact</a></td>
+                            <td><a href="<?php echo site_url('/home') ?>">Home</a></td>
+                            <td><a href="<?php echo site_url('/contact') ?>">Contact</a></td>
                         </tr>
                         <tr>
-                            <td><a href="about.html">About</a></td>
+                            <td><a href="<?php echo site_url('/about') ?>">About</a></td>
                             <td><a href="#slider">Reviews</a></td>
                         </tr>
-                        <tr><td><a href="#projects">Projects</a></td></tr>
-                        <tr><td><a href="#skills">Skills</a></td></tr>
+                        <tr>
+                            <td><a href="#projects">Projects</a></td>
+                            <td><a href="#figma">Figma</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#skills">Skills</a></td>
+                            <td><a href="#aboutMe">Resume</a></td>
+                        </tr>
                     </table>
                 </div>
             </div>

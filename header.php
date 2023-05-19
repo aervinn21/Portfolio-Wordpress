@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="./dist/css/main.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
-    <?php wp_head() ?>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+    <?php wp_head() ?>  
 </head>
 <body>
-    <div class="overlayAbout"></div>
+    <div class="overlayAbout"></div>  
     <div class="slides">
         <p class="overlayAbout2"></p>
     </div>

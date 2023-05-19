@@ -173,7 +173,7 @@ Template Name: Home
                         ?>
 					</div>
 					<div class="button mt--4">
-						<a href="about.html">VIEW ALL PROJECTS</a>
+						<a href="<?php echo site_url('/about') ?>">VIEW ALL PROJECTS</a>
 					</div>
 				</div>
 				<div class="projectsRight">
@@ -215,7 +215,7 @@ Template Name: Home
 					</div>
 
 					<div class="buttonLg mt--4">
-						<a href="#">VIEW ALL PROJECTS</a>
+						<a href="<?php echo site_url('/about') ?>">VIEW ALL PROJECTS</a>
 					</div>
 				</div>
 			</div>
@@ -270,7 +270,7 @@ Template Name: Home
                     ?>
                     <img src="<?php echo esc_url($img['url']); ?>" alt="<?php echo esc_attr($img['alt']); ?>">
                     <?php endif; ?>
-                    <a href="contact.html"><?php echo get_sub_field('button_name'); ?></a>
+                    <a href="<?php echo site_url('/contact') ?>"><?php echo get_sub_field('button_name'); ?></a>
                 </div>
                 <?php
                         endwhile;
